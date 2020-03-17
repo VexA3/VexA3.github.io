@@ -1,10 +1,33 @@
 body {
     background-color: #1E1E1E;
     color: #858585;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
-header,
-main,
-footer {
+header{
+    background-color: #252526;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.10% 0.10% 0.10% 0.10%;
+}
 
+nav {
+    background-color: #1E1E1E;
+    color: #D7AB4C;
+}
+
+main {
+    background-color: #252526;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.10% 20% 0.10% 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+footer {
+    background-color: #252526;
+    text-align: center;
+    margin-top: 43%;
 }
