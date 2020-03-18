@@ -5,7 +5,7 @@ body {
     padding-right: 2%;
 }
 
-header{
+header {
     background-color: #252526;
     text-align: center;
     border-radius: 10px;
@@ -13,21 +13,51 @@ header{
 }
 
 nav {
-    background-color: #1E1E1E;
+    background-color: #252526;
     color: #D7AB4C;
+    float: left;
+    margin-top: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 10px;
+}
+
+nav h3{
+    text-align: center;
+}
+
+.Games{
+    text-align: center;
 }
 
 main {
     background-color: #252526;
-    text-align: center;
+    float: initial;
     border-radius: 10px;
-    padding: 0.10% 20% 0.10% 20%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding: 0.10% 3% 0.10% 3%;
+    margin-left: 15%;
+    margin-right: 0%;
+    margin-top: 2%;
+}
+
+main p:first-child {
+    text-align: center;
 }
 
 footer {
     background-color: #252526;
     text-align: center;
-    margin-top: 43%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer dd{
+    display: block;
+    margin-right: 50%;
+}
+
+a {
+    color: #D7BA7D;
 }
