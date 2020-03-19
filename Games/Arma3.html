@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title> VexA3 | Main</title>
+        <title> VexA3 | Arma 3</title>
         <meta charset="utf-8">
-        <link href="../main.css" rel="stylesheet">
+        <link href="CSS/main.css" rel="stylesheet">
+        <link href="CSS/nav.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <header><h2>Test site | Main Page</h2></header>
-
         <nav>
-            <h2>Pages:</h2>
-            <hr>
-            <ul>
-                <li><a href="../index.html">Main Page</a></li>
-                <li><a href="Games/DCS.html">DCS</a></li>
-                <li><a href="Games/EFT.html">Escape From Tarkov</a></li>
-            </ul>
+            <div class="topnav">
+                <div class ="dropdown">
+                    <button class="dropbtn">Games</button>
+                    <div class="dropdown-content">
+                        <a href="Games/DCS.html">DCS</a>
+                        <a href="Games/Arma3.html">Arma 3</a>
+                        <a href="Games/EFT.html">Escape From Tarkov</a>                        
+                    </div>
+                </div>
+                |
+                <a href="index.html" class="dropbtn">Home</a>
+                |
+                <div class="dropdown">
+                    <button class="dropbtn">Hobbies</button>
+                    <div class="dropdown-content">
+                        <a href="#">Models</a>
+                        <a href="#">Aviation</a>
+                        <a href="#">Computers</a>
+                        <a href="#">Music</a>
+                        <a href="#">Keyboards</a>
+                    </div>
+                </div>
+            </div>
         </nav>
 
         <main>
