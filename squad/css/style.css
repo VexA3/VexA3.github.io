@@ -26,7 +26,7 @@ body nav {
 
 main {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 2%;
     color: white;
 }
 
@@ -51,4 +51,14 @@ footer div {
 .topnav {
     margin-top: 2%;
     margin-bottom: 1%;
+}
+
+#info {
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.formdata {
+    margin-top: 2%;
+    color: #EBC729;
 }
