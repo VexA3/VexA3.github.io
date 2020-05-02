@@ -52,7 +52,7 @@ function data() {
     // Check to see if a date was provided
     if (startDate == "" || startDate == null) {
       // no date provided, use time for today.
-      var time = moment(`${startTime}`, "hh:mm").tz("Europe/London").utc().subtract(5, 'hours').format();
+      var time = moment(`${startTime}`, "hh:mm").tz("Europe/London").utc().add(24, 'hours').subtract(5, 'hours').format();
       newStartDate = time
       console.log("StartDate3 = " + newStartDate);
     } else {
@@ -78,12 +78,13 @@ function data() {
   } else if (endTime != "" || endTime != null) {
     // A time was provided
     // Check to see if a date was provided
-    if (startDate == "" || startDate == null) {
+    if (endDate == "" || endDate == null) {
       // no date provided, use provided time for today
-      newEndDate = moment(endTime, "hh:mm").tz("Europe/London").utc().subtract(5, 'hours').format();
+      newEndDate = moment(endTime, "hh:mm").tz("Europe/London").utc().add(24, 'hours').subtract(5, 'hours').format();
       console.log("EndDate3 = " + newEndDate);
     } else {
       // date provided, format with date and time
+      console.log(endDate + endTime);
       newEndDate = moment(`${endDate} ${endTime}`, 'YYYY-MM-DD hh:mm').tz("Europe/London").utc().subtract(5, 'hours').format();
       console.log("EndDate4 = " + newEndDate);
     }
