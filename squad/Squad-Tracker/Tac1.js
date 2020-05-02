@@ -84,7 +84,7 @@ function data() {
       console.log("EndDate3 = " + newEndDate);
     } else {
       // date provided, format with date and time
-      newEndDate = moment(`${startDate} ${startTime}`, 'YYYY-MM-DD hh:mm').tz("Europe/London").utc().subtract(5, 'hours').format();
+      newEndDate = moment(`${endDate} ${endTime}`, 'YYYY-MM-DD hh:mm').tz("Europe/London").utc().subtract(5, 'hours').format();
       console.log("EndDate4 = " + newEndDate);
     }
   }
