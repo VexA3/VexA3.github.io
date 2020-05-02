@@ -54,8 +54,8 @@ footer div {
 }
 
 #info {
-    margin-left: 5%;
-    margin-right: 55%;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 label {
@@ -68,10 +68,6 @@ fieldset div {
 
 fieldset {
     background-color: #1D2531;
-}
-
-form {
-    float: left;
 }
 
 #data-adjust {
