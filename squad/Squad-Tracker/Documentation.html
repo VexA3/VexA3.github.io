@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Squad Attendance Tracker</title>
+    <meta charset="UTF-8">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/nav.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <nav>
+        <div class="Squad-header">
+            <h3>Documentation</h3>
+            <hr>
+        </div>
+        <div class="topnav">
+            <div class="dropdown">
+                <button class="dropbtn">Squad</button>
+                <div class="dropdown-content">
+                    <a href="Tac1.html">Tactical Realism1</a>
+                    <a href="Training.html">Training Server</a>
+                    <a href="Event.html">Event Server</a>
+                </div>
+            </div>
+            |
+            <a href="../../index.html" class="dropbtn">Home</a>
+            |
+            <a href="https://7cav.us/" class="dropbtn">7Cav</a>
+            |
+            <a href="./Documentation.html" class="dropbtn">Docs</a>
+        </div>
+    </nav>
+
+    <main>
+        <div id="docs">
+            <p id="disclaim">
+                Disclaimer: <br>This tracker may not work as advertised within about 1 hour and 30 minutes of submition. This means that if you
+                try to track members within 1 hour and 30 minutes of them logging on, Battlemetrics might not update quick enough to display the data.
+                This will result in skewed results by showing you some but not all members.
+            </p>
+            <hr>
+            <h2>Usage</h2>
+            <hr>
+            <ul>
+                <li>If all inputs are left blank, the tracker will get the last 24 hours of Cav members that logged onto the designated server.</li>
+                <li>The start time references the start of an operation or when you would like to start tracking Cav members who logged on.</li>
+                <li>If the start time has been supplied, but the end time is left blank. The tracker will find all members from the time specified until now for today.</li>
+                <li>If the start time and end time are supplied, but the start and end date are left blank. The tracker will find all members who logged on from the start time until the end time for today.</li>
+                <li>If the start time, end time, and <b>start date</b> are supplied, but the end date is not. The tracker will find all members who logged on from the start time until the end time for the date specified.</li>
+                <li>If the start time, end time, start date, and end date are all supplied. The tracker will find all members who logged on between the start time and end time between the 2 dates specified.</li>
+            </ul>
+
+            <h2>Problems</h2>
+            <hr>
+            <ul>
+                <li>If a <b>start time</b>, <b>end time</b>, <b>end date</b> are specified, but a <b>start date</b> is not, the tracker will error and wont return anything.</li>
+                <li>If the start time specified is too close to now, the tracker will return partial data and not all data.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div id="foot">
+            made by Vex.W
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.jQuery || document.write('<script type="text/javascript" src="Javascript/jquery-3.4.0.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
+    <script src="./Tac1.js"></script>
+</body>
+</html>

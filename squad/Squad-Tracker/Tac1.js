@@ -108,12 +108,13 @@ function sendRequest(startDate, endDate) {
     },
     contentType: "application/json; charset-utf-8",
     dataType: "json",
+    timeout: 5000,
     success: function (data) {
       spot.empty();
       var ul = document.createElement('ul');
       data.included.forEach(user => {
         if (user.attributes.name != null) {
-          if (user.attributes.name.startsWith('=7Cav=')) {
+          if (user.attributes.name.toLowerCase().startsWith('=7cav=')) {
             //$data.text() += user.attributes.name + "<br>";
             var li = document.createElement('li');
             var pText = user.attributes.name;
