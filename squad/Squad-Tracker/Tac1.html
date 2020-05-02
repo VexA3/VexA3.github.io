@@ -33,15 +33,14 @@
     <main>
         <div id="info">
             <form id="frm1" name="TrackerForm">
-
                 <fieldset>
                     <legend>Time</legend>
                     <div class="formdata">
-                        <label>Enter start time in Zulu (hh:mm:ss)</label>
+                        <label>Enter start time in Zulu (hh:mm)</label>
                         <input type="text" name="sTime">
                     </div>
                     <div class="formdata">
-                        <label>Enter end time in Zulu (hh:mm:ss)</label>
+                        <label>Enter end time in Zulu (hh:mm)</label>
                         <input type="text" name="eTime">
                     </div>
                 </fieldset>
@@ -66,7 +65,7 @@
                     </div>
                 </fieldset>
 
-                <fieldset>
+                <fieldset id="subBut">
                     <legend>Submit</legend>
                     <div class="form-data" id="button">
                         <a href="#" class="dropbtn" >Submit</a>
@@ -75,8 +74,8 @@
             </form>
         </div>
 
-        <div id="data">
-            
+        <div id="data-adjust">
+            <p>Retrieved Cav members will show here</p>
         </div>
     </main>
 

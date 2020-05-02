@@ -8,7 +8,13 @@ $(document).ready($(function () {
     endD.toggle();
   })
 
+  var $data = $('#data-adjust')
   document.getElementById('button').addEventListener('click', function () {
+    $data.empty();
+    var load = "Loading...";
+    var p = document.createElement('p');
+    var newText = document.createTextNode(load);
+    $data.append(newText);
     data();
   })
 }))
@@ -25,9 +31,6 @@ function data() {
   var endTime = formData['eTime'].value;
   var startDate = formData['sDate'].value;
   var endDate = formData['eDate'].value;
-
-  var newStartTime;
-  var newEndTime;
   var newStartDate;
   var newEndDate;
 
@@ -36,25 +39,26 @@ function data() {
     // if the start Date was not provided
     if (startDate == "" || startDate == null) {
       // go 24 hours ago and set the newStartDate to this variable as it gets the whole timeframe
-      newStartDate = moment().tz("Europe/London").subtract(24, 'hours').format();
-      console.log("StartTime = " + newStartDate);
+      newStartDate = moment().tz("Europe/London").utc().subtract(24, 'hours').format();
+      console.log("StartDate1 = " + newStartDate);
     } else {
       // Start date was provided
       // Start at beginning of day provided
       newStartDate = moment(startDate).startOf('day').subtract(6, 'hours').format();
-      console.log("StartTime = " + newStartDate);
+      console.log("StartDate2 = " + newStartDate);
     }
   } else if (startTime != "" || startTime != null) {
     // A time was provided
     // Check to see if a date was provided
     if (startDate == "" || startDate == null) {
-      // no date provided, go back 24 hours from the time provided.
-      newStartDate = moment(startTime).subtract(24, 'hours').format();
-      console.log("StartTime = " + newStartDate);
+      // no date provided, use time for today.
+      var time = moment(`${startTime}`, "hh:mm").tz("Europe/London").utc().subtract(5, 'hours').format();
+      newStartDate = time
+      console.log("StartDate3 = " + newStartDate);
     } else {
       // date provided, format with date and time
-      newStartDate = moment(startDate + " " + startTime).format();
-      console.log("StartTime = " + newStartDate);
+      newStartDate = moment(`${startDate} ${startTime}`, 'YYYY-MM-DD hh:mm').tz("Europe/London").utc().subtract(5, 'hours').format();
+      console.log("StartDate4 = " + newStartDate);
     }
   }
 
@@ -63,25 +67,25 @@ function data() {
     // if the end Date was not provided
     if (endDate == "" || endDate == null) {
       // get now
-      newEndDate = moment().tz("Europe/London").format();
-      console.log("StartTime = " + newEndDate);
+      newEndDate = moment().tz("Europe/London").utc().format();
+      console.log("EndDate1 = " + newEndDate);
     } else {
       // end date was provided
       // end at end of day provided
       newEndDate = moment(endDate).endOf('day').format();
-      console.log("StartTime = " + newEndDate);
+      console.log("EndDate2 = " + newEndDate);
     }
-  } else if (startTime != "" || startTime != null) {
+  } else if (endTime != "" || endTime != null) {
     // A time was provided
     // Check to see if a date was provided
     if (startDate == "" || startDate == null) {
-      // no date provided, go back 24 hours from the time provided.
-      newEndDate = moment(startTime).subtract(24, 'hours').format();
-      console.log("StartTime = " + newEndDate);
+      // no date provided, use provided time for today
+      newEndDate = moment(endTime, "hh:mm").tz("Europe/London").utc().subtract(5, 'hours').format();
+      console.log("EndDate3 = " + newEndDate);
     } else {
       // date provided, format with date and time
-      newEndDate = moment(startDate + " " + startTime).format();
-      console.log("StartTime = " + newEndDate);
+      newEndDate = moment(`${startDate} ${startTime}`, 'YYYY-MM-DD hh:mm').tz("Europe/London").utc().subtract(5, 'hours').format();
+      console.log("EndDate4 = " + newEndDate);
     }
   }
 
@@ -92,30 +96,46 @@ function sendRequest(startDate, endDate) {
 
   var sDate = startDate.toString();
   var eDate = endDate.toString();
-  var sD = sDate.substring(0, sDate.length - 6);
-  var eD = eDate.substring(0, eDate.length - 6);
-  var p = document.createElement('p');
-  var spot = document.getElementById('data')
+  var spot = $('#data-adjust');
   $.ajax({
     type: 'GET',
-    url: `https://api.battlemetrics.com/servers/442917/relationships/sessions?include=player&start=${sD}Z&stop=${eD}Z`,
+    url: `https://api.battlemetrics.com/servers/442917/relationships/sessions?include=player&start=${sDate}&stop=${eDate}`,
+    // For you nerds who are looking here and think you're slick, this API key is viewonly for server info which is already public information. ~ Vex
+    // Its only here temporarily so it can be used in the short term. Long term this will probably be done with expressjs
     headers: {
-      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjI5ODdkMDEwZjZmNzg4NzAiLCJpYXQiOjE1ODc5MTI3MjMsIm5iZiI6MTU4NzkxMjcyMywiaXNzIjoiaHR0cHM6Ly93d3cuYmF0dGxlbWV0cmljcy5jb20iLCJzdWIiOiJ1cm46dXNlcjoxMjM3MDEifQ.EogtksOFfM-CAHQY8hXBi4lOJfz05AevjA3wizxtooM`
+      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjU5ZDFhYThhZGNkOWQ3ZjAiLCJpYXQiOjE1ODgzNjk3NTIsIm5iZiI6MTU4ODM2OTc1MiwiaXNzIjoiaHR0cHM6Ly93d3cuYmF0dGxlbWV0cmljcy5jb20iLCJzdWIiOiJ1cm46dXNlcjoxMjM3MDEifQ.4Yo65tPvvKPQzRTKQACfkaBkjasxfMTUuRkaQ9FPWaA`
     },
     contentType: "application/json; charset-utf-8",
     dataType: "json",
     success: function (data) {
-      var $cont = $('#contain');
-      var p = document.createElement('p');
+      spot.empty();
+      var ul = document.createElement('ul');
       data.included.forEach(user => {
         if (user.attributes.name != null) {
-          if(user.attributes.name.startsWith('=7Cav='))
-          {
-            p.innerHTML += user.attributes.name + "<br>";
+          if (user.attributes.name.startsWith('=7Cav=')) {
+            //$data.text() += user.attributes.name + "<br>";
+            var li = document.createElement('li');
+            var pText = user.attributes.name;
+            var newText = document.createTextNode(pText);
+            li.appendChild(newText);
+            ul.appendChild(li);
+            var att = document.createAttribute("class");
+            att.value = "cavList";
+            ul.setAttributeNode(att);
           }
         }
       });
-      spot.appendChild(p);
+      console.log(ul.childNodes)
+      if(ul.childNodes.length > 0) {
+        spot.append(ul);
+      } else {
+        console.log("The UL was empty")
+        var p = document.createElement('p');
+        var text = "No Cav members Found during this time.";
+        var newText = document.createTextNode(text);
+        p.appendChild(newText);
+        spot.append(p);
+      }
     }
   })
 }

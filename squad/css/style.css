@@ -62,3 +62,28 @@ footer div {
     margin-top: 2%;
     color: #EBC729;
 }
+
+fieldset {
+    background-color: #1D2531;
+}
+
+#data-adjust {
+    margin-top: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 10%;
+
+    height: 100%;
+    border: 1px solid #EBC729;
+    background-color: #1D2531;
+    border-radius: 10px;
+}
+
+#subBut {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.cavList {
+    list-style-type: none;
+}
