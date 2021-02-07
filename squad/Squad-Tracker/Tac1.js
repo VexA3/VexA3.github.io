@@ -100,7 +100,7 @@ function sendRequest(startDate, endDate) {
   var spot = $('#data-adjust');
   $.ajax({
     type: 'GET',
-    url: `https://api.battlemetrics.com/servers/442917/relationships/sessions?include=player&start=${sDate}&stop=${eDate}`,
+    url: `https://api.battlemetrics.com/servers/8544214/relationships/sessions?include=player&start=${sDate}&stop=${eDate}`,
     // For you nerds who are looking here and think you're slick, this API key is viewonly for server info which is already public information. ~ Vex
     // Its only here temporarily so it can be used in the short term. Long term this will probably be done with expressjs
     headers: {
