@@ -104,7 +104,7 @@ function sendRequest(startDate, endDate) {
     // For you nerds who are looking here and think you're slick, this API key is viewonly for server info which is already public information. ~ Vex
     // Its only here temporarily so it can be used in the short term. Long term this will probably be done with expressjs
     headers: {
-      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjA4YzY3YmVkZmY5MjA4MjkiLCJpYXQiOjE1OTE2NjQxMzIsIm5iZiI6MTU5MTY2NDEzMiwiaXNzIjoiaHR0cHM6Ly93d3cuYmF0dGxlbWV0cmljcy5jb20iLCJzdWIiOiJ1cm46dXNlcjoxMjM3MDEifQ.2D9tNtiSdJWRC3Rh871xi5ccYXikLT1ylleXT5l43SE`
+      'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbiI6IjA5NTgxYmE0MWFiODVkNjMiLCJpYXQiOjE2MTI3MDQwNTUsIm5iZiI6MTYxMjcwNDA1NSwiaXNzIjoiaHR0cHM6Ly93d3cuYmF0dGxlbWV0cmljcy5jb20iLCJzdWIiOiJ1cm46dXNlcjoxMjM3MDEifQ.KVxMN2q1fCHuNFboTI8pArn0TAldrxumCIAhhQSzBjs`
     },
     contentType: "application/json; charset-utf-8",
     dataType: "json",
